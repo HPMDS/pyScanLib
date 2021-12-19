@@ -1,6 +1,7 @@
 import twain
-import Image
-from StringIO import StringIO
+import twain
+from PIL import Image
+from io import BytesIO
 
 #======================================================================
 #	Name:	    twainLib
@@ -120,7 +121,7 @@ class twainLib(object):
             self.handle = self.scanner.XferImageNatively()[0]
             image = twain.DIBToBMFile(self.handle)
             twain.GlobalHandleFree(self.handle)
-            return Image.open(StringIO(image))
+            return Image.open(BytesIO(image))
         except:
             return False
 
