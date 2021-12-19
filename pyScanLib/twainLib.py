@@ -1,5 +1,4 @@
 import twain
-import twain
 from PIL import Image
 from io import BytesIO
 
